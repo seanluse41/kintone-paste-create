@@ -1,0 +1,14 @@
+{
+    "name": "kintone-portal-customization",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "vite": "^7.3.0"
+    },
+    "dependencies": {
+        "kintone-ui-component": "^1.23.1"
+    }
+}
