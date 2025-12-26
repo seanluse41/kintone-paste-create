@@ -23,7 +23,7 @@ export function createButton() {
     button.type = 'button';
 
     // Create dialog instance
-    // TODO
+    const dialog = createDialog();
     
     button.addEventListener('click', () => {
         dialog.open();
