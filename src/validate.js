@@ -1,4 +1,5 @@
 // src/validate.js
+import i18n from './i18n';
 
 export function validateRecordJson(jsonString) {
     const result = {
@@ -13,7 +14,7 @@ export function validateRecordJson(jsonString) {
     try {
         parsedData = JSON.parse(jsonString);
     } catch (e) {
-        result.error = 'Invalid JSON format: ' + e.message;
+        result.error = i18n.t('validation.invalidJson', { message: e.message });
         return result;
     }
     
@@ -32,14 +33,14 @@ export function validateRecordJson(jsonString) {
     
     // Step 3: Validate that record is an object
     if (typeof record !== 'object' || record === null || Array.isArray(record)) {
-        result.error = 'The record data must be an object';
+        result.error = i18n.t('validation.recordMustBeObject');
         return result;
     }
     
     // Step 4: Check that record has at least one field
     const fieldCodes = Object.keys(record);
     if (fieldCodes.length === 0) {
-        result.error = 'The record object must contain at least one field';
+        result.error = i18n.t('validation.recordMustHaveFields');
         return result;
     }
     
@@ -56,12 +57,12 @@ export function validateRecordJson(jsonString) {
     
     // Non-creatable field types to warn about
     const nonCreatableTypes = {
-        'CALC': 'Calculated fields',
-        'REFERENCE_TABLE': 'Related records fields',
-        'LABEL': 'Label fields',
-        'SPACER': 'Blank space fields',
-        'HR': 'Border fields',
-        'GROUP': 'Field groups'
+        'CALC': 'CALC',
+        'REFERENCE_TABLE': 'REFERENCE_TABLE',
+        'LABEL': 'LABEL',
+        'SPACER': 'SPACER',
+        'HR': 'HR',
+        'GROUP': 'GROUP'
     };
     
     const systemFieldTypes = [
@@ -75,36 +76,37 @@ export function validateRecordJson(jsonString) {
         
         // Each field must be an object
         if (typeof field !== 'object' || field === null) {
-            result.error = `Field "${fieldCode}" must be an object`;
+            result.error = i18n.t('validation.fieldMustBeObject', { fieldCode });
             return result;
         }
         
         // Each field must have a "value" property
         if (!('value' in field)) {
-            result.error = `Field "${fieldCode}" must have a "value" property`;
+            result.error = i18n.t('validation.fieldMustHaveValue', { fieldCode });
             return result;
         }
         
         // If type is present, validate it's a known type
         if (field.type && !validFieldTypes.includes(field.type)) {
-            result.error = `Field "${fieldCode}" has unknown type: ${field.type}`;
+            result.error = i18n.t('validation.unknownFieldType', { fieldCode, type: field.type });
             return result;
         }
         
         // Warn about non-creatable fields
         if (field.type && nonCreatableTypes[field.type]) {
-            result.warnings.push(`⚠️ ${nonCreatableTypes[field.type]} cannot be created via API and will be ignored (field: "${fieldCode}")`);
+            const fieldType = i18n.t(`validation.fieldTypes.${field.type}`);
+            result.warnings.push(i18n.t('validation.warningNonCreatable', { fieldType, fieldCode }));
         }
         
         // Warn about system fields
         if (field.type && systemFieldTypes.includes(field.type)) {
-            result.warnings.push(`ℹ️ System field "${fieldCode}" will be automatically created and will be ignored from input`);
+            result.warnings.push(i18n.t('validation.warningSystemField', { fieldCode }));
         }
         
         // Validate SUBTABLE fields have proper structure
         if (field.type === 'SUBTABLE') {
             if (!Array.isArray(field.value)) {
-                result.error = `Field "${fieldCode}" is a SUBTABLE but value is not an array`;
+                result.error = i18n.t('validation.subtableNotArray', { fieldCode });
                 return result;
             }
             
@@ -112,7 +114,7 @@ export function validateRecordJson(jsonString) {
             for (let i = 0; i < field.value.length; i++) {
                 const row = field.value[i];
                 if (!row.value || typeof row.value !== 'object') {
-                    result.error = `Field "${fieldCode}" SUBTABLE row ${i} must have a "value" object`;
+                    result.error = i18n.t('validation.subtableRowInvalid', { fieldCode, index: i });
                     return result;
                 }
             }

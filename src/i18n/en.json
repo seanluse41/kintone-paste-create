@@ -10,5 +10,25 @@
     "creatingButton": "Creating...",
     "successMessage": "App created successfully! App ID:",
     "errorPrefix": "Error creating app"
+  },
+  "validation": {
+    "invalidJson": "Invalid JSON format: {{message}}",
+    "recordMustBeObject": "The record data must be an object",
+    "recordMustHaveFields": "The record object must contain at least one field",
+    "fieldMustBeObject": "Field \"{{fieldCode}}\" must be an object",
+    "fieldMustHaveValue": "Field \"{{fieldCode}}\" must have a \"value\" property",
+    "unknownFieldType": "Field \"{{fieldCode}}\" has unknown type: {{type}}",
+    "subtableNotArray": "Field \"{{fieldCode}}\" is a SUBTABLE but value is not an array",
+    "subtableRowInvalid": "Field \"{{fieldCode}}\" SUBTABLE row {{index}} must have a \"value\" object",
+    "warningNonCreatable": "⚠️ {{fieldType}} cannot be created via API and will be ignored (field: \"{{fieldCode}}\")",
+    "warningSystemField": "ℹ️ System field \"{{fieldCode}}\" will be automatically created and will be ignored from input",
+    "fieldTypes": {
+      "CALC": "Calculated fields",
+      "REFERENCE_TABLE": "Related records fields",
+      "LABEL": "Label fields",
+      "SPACER": "Blank space fields",
+      "HR": "Border fields",
+      "GROUP": "Field groups"
+    }
   }
 }

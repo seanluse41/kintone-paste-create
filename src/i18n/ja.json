@@ -10,5 +10,25 @@
     "creatingButton": "作成中...",
     "successMessage": "アプリが正常に作成されました！アプリID:",
     "errorPrefix": "アプリ作成エラー"
+  },
+  "validation": {
+    "invalidJson": "無効なJSON形式: {{message}}",
+    "recordMustBeObject": "レコードデータはオブジェクトである必要があります",
+    "recordMustHaveFields": "レコードオブジェクトには少なくとも1つのフィールドが必要です",
+    "fieldMustBeObject": "フィールド \"{{fieldCode}}\" はオブジェクトである必要があります",
+    "fieldMustHaveValue": "フィールド \"{{fieldCode}}\" には \"value\" プロパティが必要です",
+    "unknownFieldType": "フィールド \"{{fieldCode}}\" に未知のタイプがあります: {{type}}",
+    "subtableNotArray": "フィールド \"{{fieldCode}}\" はサブテーブルですが、値が配列ではありません",
+    "subtableRowInvalid": "フィールド \"{{fieldCode}}\" のサブテーブル行 {{index}} には \"value\" オブジェクトが必要です",
+    "warningNonCreatable": "⚠️ {{fieldType}}はAPI経由で作成できないため、無視されます (フィールド: \"{{fieldCode}}\")",
+    "warningSystemField": "ℹ️ システムフィールド \"{{fieldCode}}\" は自動的に作成されるため、入力から無視されます",
+    "fieldTypes": {
+      "CALC": "計算フィールド",
+      "REFERENCE_TABLE": "関連レコード一覧フィールド",
+      "LABEL": "ラベルフィールド",
+      "SPACER": "スペースフィールド",
+      "HR": "罫線フィールド",
+      "GROUP": "フィールドグループ"
+    }
   }
 }
