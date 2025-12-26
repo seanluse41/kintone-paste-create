@@ -9,6 +9,7 @@
         "vite": "^7.3.0"
     },
     "dependencies": {
+        "i18next": "^25.7.3",
         "kintone-ui-component": "^1.23.1"
     }
 }

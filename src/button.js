@@ -24,9 +24,14 @@ export function createButton() {
 
     // Create dialog instance
     const dialog = createDialog();
-    
+
+    // close on click outside
     button.addEventListener('click', () => {
         dialog.open();
+        const backdrop = document.querySelector('.kuc-dialog-1-23-1__mask');
+        if (backdrop) {
+            backdrop.addEventListener('click', () => dialog.close());
+        }
     });
 
     div4.appendChild(button);

@@ -1,0 +1,14 @@
+{
+  "dialog": {
+    "title": "貼り付けてアプリ作成",
+    "appNameLabel": "アプリ名:",
+    "appNamePlaceholder": "アプリ名を入力...",
+    "jsonLabel": "レコードJSON:",
+    "jsonPlaceholder": "レコードオブジェクトを貼り付けてください...",
+    "cancelButton": "キャンセル",
+    "createButton": "作成",
+    "creatingButton": "作成中...",
+    "successMessage": "アプリが正常に作成されました！アプリID:",
+    "errorPrefix": "アプリ作成エラー"
+  }
+}

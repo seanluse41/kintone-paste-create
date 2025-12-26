@@ -1,0 +1,14 @@
+{
+  "dialog": {
+    "title": "Paste & Create App",
+    "appNameLabel": "App Name:",
+    "appNamePlaceholder": "Enter app name...",
+    "jsonLabel": "Record JSON:",
+    "jsonPlaceholder": "Paste your record object here...",
+    "cancelButton": "Cancel",
+    "createButton": "Create",
+    "creatingButton": "Creating...",
+    "successMessage": "App created successfully! App ID:",
+    "errorPrefix": "Error creating app"
+  }
+}
