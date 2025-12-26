@@ -57,12 +57,9 @@ export function validateRecordJson(jsonString) {
     
     // Non-creatable field types to warn about
     const nonCreatableTypes = {
-        'CALC': 'CALC',
-        'REFERENCE_TABLE': 'REFERENCE_TABLE',
         'LABEL': 'LABEL',
         'SPACER': 'SPACER',
         'HR': 'HR',
-        'GROUP': 'GROUP'
     };
     
     const systemFieldTypes = [
