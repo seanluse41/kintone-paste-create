@@ -1,6 +1,7 @@
 # kintone-paste-create
 
 Allows users to paste a record object into the portal, and quickly create an App.
+
 ポータル画面からレコード形式のJSONを貼り付ければそのままアプリ作成できます。
 
 画像で説明すると：
@@ -23,7 +24,7 @@ Allows users to paste a record object into the portal, and quickly create an App
 
 ## ユースケース
 
-よく公式Docs（[https://cybozu.dev](https://cybozu.dev) や　[https://kintone.dev](https://kintone.dev))では、アプリ作成してからカスタマイズするケースが多い。これがあれば、サイトからコピペーしたら、入力ミスなどなしですぐに作成できる。
+よく公式Docs（[https://cybozu.dev](https://cybozu.dev)や[https://kintone.dev](https://kintone.dev))では、アプリ作成してからカスタマイズするケースが多い。これがあれば、サイトからコピペーしたら、入力ミスなどなしですぐに作成できる。
 ハッカソンとかにも？
 
 
